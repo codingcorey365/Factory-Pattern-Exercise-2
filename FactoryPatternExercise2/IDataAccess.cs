@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactoryPatternExercise2
 {
-    internal interface Interface1
+    public interface IDataAccess
     {
+        public List<Product> LoadData();
+        public void SaveData();
     }
 }

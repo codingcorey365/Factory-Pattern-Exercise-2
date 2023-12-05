@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactoryPatternExercise2
 {
-    internal class Product
+    public class Product
     {
+        public string Name { get; set; }
+        public int Price { get; set; }
     }
 }

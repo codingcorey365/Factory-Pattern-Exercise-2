@@ -6,31 +6,34 @@ namespace FactoryPatternExercise2
     {
         static void Main(string[] args)
         {
+            bool correctInput = true;
+            do
+            {
             Console.WriteLine("Hello, what type of database would you like to use? Enter: list, sql or mongo for the database type you would like to utilize.");
 
             string databaseType = Console.ReadLine();
-            bool correctInput = true;
-            //do
-            //{
 
-            //} while (correctInput = false);
-            if (databaseType == "list".ToLower() || databaseType == "sql".ToLower() || databaseType == "mongo".ToLower())
-            {
-                IDataAccess database = DataAccessFactory.GetDataAccessType(databaseType);
+                // ---------------------------------------  If Else Statement ---------------------------------------------
+                // Console.WriteLine("-------------------------------------------------------------------------------------------");
+                //if (databaseType == "list".ToLower() || databaseType == "sql".ToLower() || databaseType == "mongo".ToLower())
+                //{
+                //    IDataAccess database = DataAccessFactory.GetDataAccessType(databaseType);
 
-                List<Product> products = database.LoadData();
-                database.SaveData();
+                //    List<Product> products = database.LoadData();
+                //    database.SaveData();
 
-                foreach (var item in products)
-                {
-                    Console.WriteLine($"Name: {item.Name} Price: {item.Price}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Not a valid input");
-                correctInput = false;
-            }
+                //    foreach (var item in products)
+                //    {
+                //        Console.WriteLine($"Name: {item.Name} Price: {item.Price}");
+                //    }
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Not a valid input");
+                //    correctInput = false;
+                //}
+                // Console.WriteLine("-------------------------------------------------------------------------------------------");
+            } while (correctInput == false);
         }
     }
 }
