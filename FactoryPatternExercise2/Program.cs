@@ -12,10 +12,15 @@ namespace FactoryPatternExercise2
                 Console.WriteLine("Hello, what type of database would you like to use? Enter: list, sql or mongo for the database type you would like to utilize.");
 
                 string databaseType = Console.ReadLine();
+                if (string.IsNullOrEmpty(databaseType))
+                {
+                    Console.WriteLine("Not a valid input");                    
+                    return;
+                }
 
                 // ---------------------------------------  If Else Statement ---------------------------------------------------
                 // Console.WriteLine("-------------------------------------------------------------------------------------------");
-                if (databaseType == "list".ToLower() || databaseType == "sql".ToLower() || databaseType == "mongo".ToLower())
+                if (databaseType.ToLower() == "list"|| databaseType.ToLower() == "sql"|| databaseType.ToLower() == "mongo")
                 {
                     IDataAccess database = DataAccessFactory.GetDataAccessType(databaseType);
 
@@ -63,5 +68,7 @@ namespace FactoryPatternExercise2
 
             } while (correctInput == false); // if satement
         }
+        
+
     }
 }
